@@ -71,7 +71,10 @@ public class MenuState extends GameState implements ImageObserver
             if (this.SelectedOption == 0) {
                 this.gsm1.getState().push(new LevelOneState(this.gsm1));
             }
-            else if (this.SelectedOption != 1 && this.SelectedOption == 2) {
+            else if(this.SelectedOption == 1){
+            	//help
+            }
+            else if (this.SelectedOption == 2 ) {
                 System.exit(0);
             }
         }
