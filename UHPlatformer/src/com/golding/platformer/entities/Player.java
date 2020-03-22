@@ -101,10 +101,6 @@ public class Player
     }
     
     public void draw(final Graphics g) {
-       // g.setColor(Color.BLACK);
-        //g.fillRect((int)this.x, (int)this.y, this.width, this.height);
-        
-		
     	if(this.jumping)
     	{
     		if(this.left)
