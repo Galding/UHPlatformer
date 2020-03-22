@@ -104,10 +104,42 @@ public class Player
        // g.setColor(Color.BLACK);
         //g.fillRect((int)this.x, (int)this.y, this.width, this.height);
         
-		//Image sprite;
-		//sprite = ImageIO.read(this.getClass().getResourceAsStream("/basic_sprite.png"));
-		g.drawImage(Images.basicSprite[0], (int)this.x, (int)this.y, this.width, this.height, null);
-       
+		
+    	if(this.jumping)
+    	{
+    		if(this.left)
+    		{
+    			g.drawImage(Images.basicSprite[5], (int)this.x, (int)this.y, this.width, this.height, null);
+    		}
+    		else
+    		{
+    			g.drawImage(Images.basicSprite[1], (int)this.x, (int)this.y, this.width, this.height, null);
+    		}
+    		
+    	}
+    	else if(this.falling)
+    	{
+    		if(this.left)
+    		{
+    			g.drawImage(Images.basicSprite[6], (int)this.x, (int)this.y, this.width, this.height, null);
+    		}
+    		else
+    		{
+    			g.drawImage(Images.basicSprite[2], (int)this.x, (int)this.y, this.width, this.height, null);
+    		}
+    	}
+    	else if(this.right)
+    	{
+    		g.drawImage(Images.basicSprite[3], (int)this.x, (int)this.y, this.width, this.height, null);
+    	}
+    	else if(this.left)
+    	{
+    		g.drawImage(Images.basicSprite[4], (int)this.x, (int)this.y, this.width, this.height, null);
+    	}
+    	else 
+    	{
+    		g.drawImage(Images.basicSprite[0], (int)this.x, (int)this.y, this.width, this.height, null);
+    	}
     }
     
     public void keyPressed(final int k) {
