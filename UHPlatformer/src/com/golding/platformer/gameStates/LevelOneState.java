@@ -16,7 +16,7 @@ public class LevelOneState extends GameState
     
     
     public void init() {
-        this.player = new Player(30, 30);
+        this.player = new Player(45, 45);
         this.map = new Map("/map1.UHP");
         LevelOneState.xOffset = -400.0;
         LevelOneState.yOffset = -600.0;

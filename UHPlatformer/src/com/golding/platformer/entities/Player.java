@@ -4,9 +4,10 @@
 
 package com.golding.platformer.entities;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import com.golding.platformer.physics.Collisions;
+import com.golding.platformer.ressources.Images;
+
 import java.awt.Point;
 import com.golding.platformer.gameStates.GameState;
 import com.golding.platformer.objects.Block;
@@ -100,8 +101,13 @@ public class Player
     }
     
     public void draw(final Graphics g) {
-        g.setColor(Color.BLACK);
-        g.fillRect((int)this.x, (int)this.y, this.width, this.height);
+       // g.setColor(Color.BLACK);
+        //g.fillRect((int)this.x, (int)this.y, this.width, this.height);
+        
+		//Image sprite;
+		//sprite = ImageIO.read(this.getClass().getResourceAsStream("/basic_sprite.png"));
+		g.drawImage(Images.basicSprite[0], (int)this.x, (int)this.y, this.width, this.height, null);
+       
     }
     
     public void keyPressed(final int k) {
