@@ -5,6 +5,9 @@ import java.awt.Image;
 import java.awt.Font;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+
+import com.golding.platformer.GamePanel;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.ImageObserver;
@@ -35,7 +38,7 @@ public class MenuState extends GameState implements ImageObserver
         try {
             final Image bg = ImageIO.read(this.getClass().getResourceAsStream("/bg.png"));
             final Image title = ImageIO.read(this.getClass().getResourceAsStream("/title.png"));
-            g.drawImage(bg, 0, 0, 1280, 720, this);
+            g.drawImage(bg, 0, 0, GamePanel.WIDTH, GamePanel.HEIGHT, this);
             g.drawImage(title, 480, 10, 356, 74, this);
         }
         catch (IOException e) {
