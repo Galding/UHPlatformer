@@ -9,12 +9,15 @@ public class Images
 {
     public static BufferedImage[] blocks;
 	public static BufferedImage[] basicSprite;
+	public static BufferedImage[] gameBg;
     
     public Images() {
         Images.blocks = new BufferedImage[1];
         Images.basicSprite = new BufferedImage[10];
+        Images.gameBg = new BufferedImage[1];
         try {
             Images.blocks[0] = ImageIO.read(this.getClass().getResourceAsStream("/block_brick.png"));
+            
             Images.basicSprite[0] = ImageIO.read(this.getClass().getResourceAsStream("/basic_sprite.png"));
             Images.basicSprite[1] = ImageIO.read(this.getClass().getResourceAsStream("/PlayerJump.png"));
             Images.basicSprite[2] = ImageIO.read(this.getClass().getResourceAsStream("/PlayerFall.png"));
@@ -22,6 +25,8 @@ public class Images
             Images.basicSprite[4] = ImageIO.read(this.getClass().getResourceAsStream("/PlayerLeft.png"));
             Images.basicSprite[5] = ImageIO.read(this.getClass().getResourceAsStream("/PlayerJumpLeft.png"));
             Images.basicSprite[6] = ImageIO.read(this.getClass().getResourceAsStream("/PlayerFallLeft.png"));
+            
+            Images.gameBg[0] = ImageIO.read(this.getClass().getResourceAsStream("/gamebg.png"));
         }
         catch (IOException e) {
             e.printStackTrace();

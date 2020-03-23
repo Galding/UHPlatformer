@@ -3,6 +3,8 @@ package com.golding.platformer.gameStates;
 
 import java.awt.Graphics;
 import com.golding.platformer.mapping.Map;
+import com.golding.platformer.ressources.Images;
+import com.golding.platformer.GamePanel;
 import com.golding.platformer.entities.Player;
 
 public class LevelOneState extends GameState
@@ -29,6 +31,7 @@ public class LevelOneState extends GameState
     
     
     public void draw(Graphics g) {
+    	g.drawImage(Images.gameBg[0], 0, 0, GamePanel.WIDTH, GamePanel.HEIGHT, null);
         this.player.draw(g);
         this.map.draw(g);
     }
