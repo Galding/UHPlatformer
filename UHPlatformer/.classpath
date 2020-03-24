@@ -4,6 +4,5 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="Img"/>
 	<classpathentry kind="src" path="res"/>
-	<classpathentry kind="lib" path="C:/Users/Admin/Desktop/test.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
