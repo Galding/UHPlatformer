@@ -3,6 +3,8 @@
 package com.golding.platformer;
 
 import java.awt.BorderLayout;
+import java.awt.Frame;
+
 import javax.swing.JFrame;
 
 public class Main
@@ -17,5 +19,6 @@ public class Main
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+        frame.setExtendedState(Frame.MAXIMIZED_BOTH);
     }
 }

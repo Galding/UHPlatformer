@@ -1,20 +1,23 @@
- 
 
 package com.golding.platformer;
 
-import java.awt.Graphics;
-import java.awt.event.KeyEvent;
-import com.golding.platformer.ressources.Images;
 import java.awt.Dimension;
-import com.golding.platformer.gameStates.GameStateManager;
+import java.awt.Graphics;
+import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+
 import javax.swing.JPanel;
+
+import com.golding.platformer.gameStates.GameStateManager;
+import com.golding.platformer.ressources.Images;
 
 public class GamePanel extends JPanel implements Runnable, KeyListener
 {
     private static final long serialVersionUID = 1L;
-    public static final int WIDTH = 1280;
-    public static final int HEIGHT = 720;
+    public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    public static final int WIDTH = screenSize.width ;		//1280
+    public static final int HEIGHT = screenSize.height;		//720
     @SuppressWarnings("unused")
 	private Thread thread;
     private boolean isRunning;
@@ -26,7 +29,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener
         this.isRunning = false;
         this.FPS = 60;
         this.targetTime = 1000 / this.FPS;
-        this.setPreferredSize(new Dimension(1280, 720));
+        this.setPreferredSize(new Dimension(WIDTH, HEIGHT));
         this.addKeyListener(this);
         this.setFocusable(true);
         new Images();

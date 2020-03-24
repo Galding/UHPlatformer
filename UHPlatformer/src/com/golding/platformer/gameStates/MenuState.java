@@ -39,7 +39,7 @@ public class MenuState extends GameState implements ImageObserver
             final Image bg = ImageIO.read(this.getClass().getResourceAsStream("/bg.png"));
             final Image title = ImageIO.read(this.getClass().getResourceAsStream("/title.png"));
             g.drawImage(bg, 0, 0, GamePanel.WIDTH, GamePanel.HEIGHT, this);
-            g.drawImage(title, 480, 10, 356, 74, this);
+            g.drawImage(title, GamePanel.WIDTH / 2 - 125 , GamePanel.HEIGHT / 18, 356, 74, this);		//old value x : 480, y : 10
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -52,7 +52,7 @@ public class MenuState extends GameState implements ImageObserver
                 g.setColor(new Color(107, 107, 71));
             }
             g.setFont(new Font("Montserrat", 0, 72));
-            g.drawString(this.options[i], 565, 200 + i * 150);
+            g.drawString(this.options[i], GamePanel.WIDTH / 2 - 50, 250 + i * 150);
         }
     }
     
