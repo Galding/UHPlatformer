@@ -2,6 +2,8 @@
 package com.golding.platformer.gameStates;
 
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+
 import com.golding.platformer.mapping.Map;
 import com.golding.platformer.ressources.Images;
 import com.golding.platformer.GamePanel;
@@ -20,7 +22,7 @@ public class LevelOneState extends GameState
     public void init() {
         this.player = new Player(50, 50);
         this.map = new Map("/map1.UHP");
-        LevelOneState.xOffset = -400.0;
+        LevelOneState.xOffset = -650;
         LevelOneState.yOffset = -600.0;
     }
     
@@ -39,6 +41,15 @@ public class LevelOneState extends GameState
     
     public void keyPressed(int k) {
         this.player.keyPressed(k);
+        if(k == KeyEvent.VK_ESCAPE)
+        {
+        	double x1 = xOffset;
+        	double y1 = yOffset;
+        	this.gsm1.getState().push(new PauseState(this.gsm1));
+
+        	LevelOneState.xOffset = x1;		
+        	LevelOneState.yOffset = y1;		
+        }
     }
     
     
