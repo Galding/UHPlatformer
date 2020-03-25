@@ -83,6 +83,7 @@ public class Player
         this.topCollision = false;
         if (this.right) {
             GameState.xOffset += this.moveSpeed;
+            
         }
         if (this.left) {
             GameState.xOffset -= this.moveSpeed;
@@ -95,12 +96,15 @@ public class Player
                 this.jumping = false;
                 this.falling = true;
             }
+            
         }
         if (this.falling) {
             GameState.yOffset += this.currentFallSpeed;
             if (this.currentFallSpeed < this.maxFallSpeed) {
                 this.currentFallSpeed += 0.1;
             }
+            
+           
         }
         if (!this.falling) {
             this.currentFallSpeed = 0.1;

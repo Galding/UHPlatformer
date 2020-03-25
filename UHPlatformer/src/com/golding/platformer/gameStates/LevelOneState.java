@@ -24,11 +24,16 @@ public class LevelOneState extends GameState
         this.map = new Map("/map1.UHP");
         LevelOneState.xOffset = -650;
         LevelOneState.yOffset = -600.0;
+        
     }
     
     
     public void tick() {
         this.player.tick(this.map.getBlocks());
+        if(GameState.yOffset > -100)
+        {
+        	this.gsm1.getState().push(new DeathState(this.gsm1));
+        }
     }
     
     
