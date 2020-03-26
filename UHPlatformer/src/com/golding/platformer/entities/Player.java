@@ -6,8 +6,11 @@ import com.golding.platformer.physics.Collisions;
 import com.golding.platformer.ressources.Images;
 
 import java.awt.Point;
+import java.util.ArrayList;
+
 import com.golding.platformer.gameStates.GameState;
 import com.golding.platformer.objects.Block;
+import com.golding.platformer.objects.MovingBlock;
 
 public class Player
 {
@@ -45,9 +48,11 @@ public class Player
      
     }
     
-    public void tick(final Block[][] b) {
+    public void tick(final Block[][] b, ArrayList<MovingBlock> movingBlocks) {
         final int iX = (int)this.x;
         final int iY = (int)this.y;
+        
+        /* Basic collision */
         for (int i = 0; i < b.length; ++i) {
             for (int j = 0; j < b[0].length; ++j) {
                 if (b[i][j].getId() != 0) {
@@ -80,6 +85,44 @@ public class Player
                 }
             }
         }
+        
+        
+        /* Moving Block collisions*/
+        for(int i = 0; i < movingBlocks.size(); i++)
+        {
+        	if(movingBlocks.get(i).getId() != 0)
+        	{
+        		//right collision
+                if (Collisions.playerMovingBlock(new Point(iX + this.width + (int)GameState.xOffset, iY + (int)GameState.yOffset + 2), movingBlocks.get(i)) 
+                		|| Collisions.playerMovingBlock(new Point(iX + this.width + (int)GameState.xOffset, iY + this.height + (int)GameState.yOffset - 1), movingBlocks.get(i))) {
+                    this.right = false;
+                }
+                //left collision
+                if (Collisions.playerMovingBlock(new Point(iX + (int)GameState.xOffset - 1, iY + (int)GameState.yOffset + 2), movingBlocks.get(i)) 
+                		|| Collisions.playerMovingBlock(new Point(iX + (int)GameState.xOffset - 1, iY + this.height + (int)GameState.yOffset - 1), movingBlocks.get(i))) {
+                    this.left = false;
+                }
+                //top collision
+                if (Collisions.playerMovingBlock(new Point(iX + (int)GameState.xOffset + 1, iY + (int)GameState.yOffset), movingBlocks.get(i)) 
+                		|| Collisions.playerMovingBlock(new Point(iX + this.width + (int)GameState.xOffset - 2, iY + (int)GameState.yOffset), movingBlocks.get(i))) {
+                    this.jumping = false;
+                    this.falling = true;
+                }
+                //bottom collision
+                if (Collisions.playerMovingBlock(new Point(iX + (int)GameState.xOffset + 2, iY + this.height + (int)GameState.yOffset + 1), movingBlocks.get(i))
+                		|| Collisions.playerMovingBlock(new Point(iX + this.width + (int)GameState.xOffset - 2, iY + this.height + (int)GameState.yOffset + 1), movingBlocks.get(i))) {
+                    this.y = movingBlocks.get(i).getY() - this.height - GameState.yOffset;
+                    this.falling = false;
+                    this.topCollision = true;
+                    
+                    GameState.xOffset += movingBlocks.get(i).getMove();
+                }
+                else if (!this.topCollision && !this.jumping) {
+                    this.falling = true;
+                }
+        	}
+        }
+        
         this.topCollision = false;
         if (this.right) {
             GameState.xOffset += this.moveSpeed;

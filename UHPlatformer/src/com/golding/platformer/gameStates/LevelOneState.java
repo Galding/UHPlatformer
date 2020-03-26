@@ -29,11 +29,13 @@ public class LevelOneState extends GameState
     
     
     public void tick() {
-        this.player.tick(this.map.getBlocks());
-        if(GameState.yOffset > -100)
+        this.player.tick(this.map.getBlocks(), this.map.getMovingBlock());
+        this.map.tick();
+        if(GameState.yOffset > -75)
         {
         	this.gsm1.getState().push(new DeathState(this.gsm1));
         }
+        
     }
     
     

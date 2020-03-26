@@ -25,7 +25,7 @@ public class MovingBlock extends Rectangle
 	
 	public void tick() {
 		
-		if(this.x + this.width - GameState.xOffset >= this.rightBound - GameState.xOffset && this.move != 1)
+		if(this.x + this.width - GameState.xOffset >= this.rightBound - GameState.xOffset && this.move != -1)
 		{
 			this.move *= -1;
 		}
