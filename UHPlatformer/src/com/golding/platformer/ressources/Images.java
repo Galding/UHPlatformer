@@ -13,12 +13,13 @@ public class Images
 	public static BufferedImage[] titles;
     
     public Images() {
-        Images.blocks = new BufferedImage[1];
+        Images.blocks = new BufferedImage[2];
         Images.basicSprite = new BufferedImage[10];
         Images.gameBg = new BufferedImage[2];
         Images.titles = new BufferedImage[2];
         try {
             Images.blocks[0] = ImageIO.read(this.getClass().getResourceAsStream("/block_brick.png"));
+            Images.blocks[1] = ImageIO.read(this.getClass().getResourceAsStream("/stoneTexture.png"));
             
             Images.basicSprite[0] = ImageIO.read(this.getClass().getResourceAsStream("/basic_sprite.png"));
             Images.basicSprite[1] = ImageIO.read(this.getClass().getResourceAsStream("/PlayerJump.png"));
