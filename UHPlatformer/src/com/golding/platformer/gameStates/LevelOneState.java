@@ -22,8 +22,8 @@ public class LevelOneState extends GameState
     public void init() {
         this.player = new Player(50, 50);
         this.map = new Map("/map1.UHP");
-        LevelOneState.xOffset = -650;
-        LevelOneState.yOffset = -600.0;
+        LevelOneState.xOffset = -650;	//-650
+        LevelOneState.yOffset = -600.0;	//-600
         
     }
     
@@ -31,9 +31,13 @@ public class LevelOneState extends GameState
     public void tick() {
         this.player.tick(this.map.getBlocks(), this.map.getMovingBlock());
         this.map.tick();
-        if(GameState.yOffset > -75)
+        if(GameState.yOffset > -60)
         {
         	this.gsm1.getState().push(new DeathState(this.gsm1));
+        }
+        if(GameState.xOffset == 4315)
+        {
+        	this.gsm1.getState().push(new WinState(this.gsm1));
         }
         
     }
@@ -43,6 +47,7 @@ public class LevelOneState extends GameState
     	g.drawImage(Images.gameBg[0], 0, 0, GamePanel.WIDTH, GamePanel.HEIGHT, null);
         this.player.draw(g);
         this.map.draw(g);
+        
     }
     
     
