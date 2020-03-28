@@ -3,6 +3,8 @@ package com.golding.platformer.ressources;
 
 import java.io.IOException;
 import javax.imageio.ImageIO;
+
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 
 public class Images
@@ -16,7 +18,7 @@ public class Images
         Images.blocks = new BufferedImage[2];
         Images.basicSprite = new BufferedImage[10];
         Images.gameBg = new BufferedImage[2];
-        Images.titles = new BufferedImage[2];
+        Images.titles = new BufferedImage[3];
         try {
             Images.blocks[0] = ImageIO.read(this.getClass().getResourceAsStream("/block_brick.png"));
             Images.blocks[1] = ImageIO.read(this.getClass().getResourceAsStream("/stoneTexture.png"));
@@ -34,6 +36,7 @@ public class Images
             
             Images.titles[0] = ImageIO.read(this.getClass().getResourceAsStream("/PauseTitle.png"));
             Images.titles[1] = ImageIO.read(this.getClass().getResourceAsStream("/DeadTitle.png"));
+            Images.titles[2] = ImageIO.read(this.getClass().getResourceAsStream("/WinTitle.png"));
         }
         catch (IOException e) {
             e.printStackTrace();
