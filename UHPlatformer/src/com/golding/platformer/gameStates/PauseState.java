@@ -16,7 +16,7 @@ public class PauseState extends GameState
 	public PauseState(GameStateManager gsm)
 	{
 		super(gsm);
-		this.options = new String[] {"Continue", "Help", "Quit"};
+		this.options = new String[] {"Continue", "Retry", "Help", "Main Menu", "Quit"};
 		this.SelectedOption = 0;
 		
 	}
@@ -51,7 +51,7 @@ public class PauseState extends GameState
 	                p.setColor(new Color(64, 64, 64));
 	            }
 		 
-		  p.setFont(new Font("Montserrat", 0, 72));
+		  p.setFont(new Font("Montserrat", 0, 70));
 		  p.drawString(this.options[i], GamePanel.WIDTH / 2 - 100 - j, 250 + i * 150);
 		  j = 0;
 		  }
@@ -74,12 +74,24 @@ public class PauseState extends GameState
         }
         if (k == 10) {
             if (this.SelectedOption == 0) {
+            	//Continue
                 this.gsm1.getState().pop();
             }
             else if(this.SelectedOption == 1){
-            	//help
+            	//Retry
+            	this.gsm1.getState().push(new LevelOneState(this.gsm1));
             }
-            else if (this.SelectedOption == 2 ) {
+            else if (this.SelectedOption == 2 )
+            {
+            	//Help
+            }
+            else if (this.SelectedOption == 3 )
+            {
+            	//Main menu
+            	this.gsm1.getState().push(new MenuState(this.gsm1));
+            }
+            else if (this.SelectedOption == 4 ) {
+            	//Exit
                 System.exit(0);
             }
         }
