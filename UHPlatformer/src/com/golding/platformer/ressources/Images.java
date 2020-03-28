@@ -4,7 +4,6 @@ package com.golding.platformer.ressources;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
-import java.awt.Image;
 import java.awt.image.BufferedImage;
 
 public class Images
